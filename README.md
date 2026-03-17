@@ -4,7 +4,7 @@
 
 This GitHub Actions workflow demonstrates how to **validate and use different types of inputs** in a `workflow_dispatch` event. It's designed to understand GitHub Actions inputs, their types, validation, and conditional execution.
 
-The workflow is triggered manually via **workflow_dispatch** and accepts 5 different input types:
+The workflow is triggered manually (via **workflow_dispatch**) and accepts 5 different input types:
 
 1. **Boolean** (`run_tests`)
 2. **Choice** (`test_type`)
@@ -89,7 +89,7 @@ jobs:
 - **Shorthand syntax** `inputs.name` (vs full `github.event.inputs.name`)
 - Only executes when boolean input is `true`
 
-## How to Use
+## How to Use (For Freshers)
 
 ### 1. **Save the Workflow**
 
@@ -161,7 +161,7 @@ environment: staging
 
 ## Testing the Workflow
 
-1. **Commit** to `.github/workflows/checking-inputs.yml` (check the same file in this repo)
+1. **Commit** to `.github/workflows/checking-inputs.yml`
 2. **Manual trigger** with different input combinations
 3. **Check logs** to verify input values
 4. **Verify conditional logic** (test step only runs when selected)
@@ -174,4 +174,3 @@ This workflow serves as a **foundation** for more complex CI/CD pipelines with i
 
 ---
 
-_Created for Jenkins/Terraform project demonstration_
