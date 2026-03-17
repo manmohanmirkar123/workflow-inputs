@@ -1,0 +1,43 @@
+name: checking-inputs
+on:
+  workflow_dispatch:
+    inputs:
+      run_tests:   # use underscore instead of hyphen
+        description: "run tests?"
+        type: boolean
+        required: true
+      test_type:
+        description: "type of test to run"
+        type: choice
+        required: true
+        options:
+          - unit
+          - integration
+          - all
+      environment:
+        description: 'choose an environment'
+        required: true
+        type: environment
+      build-number:
+        description: "custom build number"
+        required: false
+        type: number
+      message:
+        description: "Additional message"
+        type: string
+        required: false
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: printing workflow inputs
+        run: |
+          echo "Run tests: ${{ github.event.inputs.run_tests }}"
+          echo "Test type: ${{ github.event.inputs.test_type }}"
+          echo "Environment: ${{ github.event.inputs.environment }}"
+          echo "Build number: ${{ github.event.inputs.build-number }}"
+          echo "Message: ${{ github.event.inputs.message }}"
+
+      - name: Run Tests (if selected)
+        if: ${{ inputs.run_tests == true}}
+        run: echo "Testing ......."
