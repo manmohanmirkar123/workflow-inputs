@@ -89,7 +89,7 @@ jobs:
 - **Shorthand syntax** `inputs.name` (vs full `github.event.inputs.name`)
 - Only executes when boolean input is `true`
 
-## How to Use (For Freshers)
+## How to Use
 
 ### 1. **Save the Workflow**
 
